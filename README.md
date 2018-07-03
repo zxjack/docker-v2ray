@@ -1,6 +1,6 @@
-# docker-v2ray  
+# docker-v2ray-aria2-nextcloud  
 
-利用docker-compose一键搭建v2ray-ws-tls  
+利用docker-compose一键搭建v2ray-ws-tls,增加了aria2和nextcloud，这样就可以一键搞定所有的事情了。  
 
 - 注意修改：
 
