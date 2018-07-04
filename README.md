@@ -5,14 +5,16 @@
 - 注意修改：
 
 v2ray中  
-```
+
+```bash
     environment:
           - VIRTUAL_HOST=域名
           - VIRTUAL_PORT=端口
 ```
 
-web1中
-```
+web1中  
+
+```bash
     container_name: 域名
     expose:
           - "80"
@@ -39,7 +41,7 @@ json 写完之后，注意校对格式哦
 使用你的域名替换 You_Domain_Name，要与 web1 设置的一致。
 注意 proxy_pass 后的端口与 v2ray 设置的一致。  
 
-```  
+```bash
 proxy_redirect off;
 proxy_http_version 1.1;
 proxy_set_header Upgrade $http_upgrade;
@@ -49,4 +51,3 @@ if ($http_upgrade = "websocket" ) {
 proxy_pass http://v2ray:****;
 }
 ```
-
