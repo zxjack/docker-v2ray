@@ -36,43 +36,20 @@ services:
      environment:
           - VIRTUAL_HOST=域名
           - VIRTUAL_PORT=端口
-   web1:
-    image: nginx:latest
-    restart: always
-    container_name: 域名
-    expose:
+   nextcloud:
+     image: zxjack/nextcloud-aria2
+     restart: always
+     container_name: 域名
+     expose:
           - "80"
-    environment:
+     environment:
           - VIRTUAL_HOST=域名
           - VIRTUAL_PORT=80
           - LETSENCRYPT_HOST=域名
           - LETSENCRYPT_EMAIL=邮箱
-   nextcloud:
-    image: wonderfall/nextcloud
-    volumes:
-          - /data/nextcloud:/data
-          - /data:/user-files
-    restart: always
-   aria2:
-     image: wahyd4/aria2-ui:nextcloud
-     ports:
-          - "8000:80"
-          - "6800:6800"
-    #     - "443:443"
-     volumes_from:
-          - nextcloud
-    # volumes:
-    #   - /some_folder:/root/conf/key
-    #   - ~/test/aria2.conf:/root/conf/aria2.conf
-     environment:
-          - DOMAIN=:80
-      # - SSL=true
-      # - RPC_SECRET=Hello
-      # - ARIA2_USER=admin
-      # - ARIA2_PWD=password
-      # - ENABLE_AUTH=true
-     links:
-          - nextcloud:file-manager
-     restart: always
+     volumes:
+          - /data/nextcloud:/var/www/html:rw
+          - /data:/var/www/data:rw
+   
 
  
