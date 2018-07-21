@@ -12,7 +12,7 @@ v2ray中
           - VIRTUAL_PORT=端口
 ```
 
-web1中  
+nextcloud中  
 
 ```bash
     container_name: 域名
